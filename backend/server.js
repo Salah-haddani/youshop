@@ -2,8 +2,10 @@ import dotenv from 'dotenv';
 import express from 'express';
 dotenv.config();
 import products from './data/products.js';
-const port = process.env.PORT || 5000;
+import connectDB from './config/db.js';
 
+const port = process.env.PORT || 5000;
+connectDB(); // connect to MongoDB
 const app = express();
 
 app.get('/', (req, res) => {
